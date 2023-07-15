@@ -1,0 +1,249 @@
+body {
+	height: 100vh;
+	width: 100%;
+}
+
+.container {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 8vh;
+}
+
+.container::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background: url("../contents/pictures/DSC7276.jpg") no-repeat center;
+	background-size: cover;
+	filter: blur(40px);
+	z-index: -2;
+}
+.container::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.14);
+	z-index: -1;
+}
+.contact-box{
+	max-width: 1000px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: #fff;
+	box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+
+    border-radius: 20px;
+}
+
+.left{
+	background: url("../contents/pictures/DSC7276.jpg") no-repeat center;
+	background-size: cover;
+	height: 100%;
+
+    border-radius: 20px 0 0 20px;
+}
+
+.right{
+	padding: 25px 40px;
+}
+
+h2{
+	position: relative;
+	padding: 0 0 10px;
+	margin-bottom: 10px;
+}
+
+h2:after{
+	content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 50px;
+    border-radius: 2px;
+    background-color: #2ecc71;
+}
+
+.field{
+	width: 100%;
+	border: 2px solid rgba(0, 0, 0, 0);
+	outline: none;
+	background-color: rgba(230, 230, 230, 0.6);
+	padding: 0.5rem 1rem;
+	font-size: 1.0rem;
+	margin-bottom: 22px;
+	transition: .1s;
+
+    border-radius: 6px;
+}
+
+.field:hover{
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+textarea{
+	min-height: 150px;
+}
+
+.btn {
+	width: 100%;
+	padding: 0.5rem 1rem;
+	background-color: var(--clr-green);
+	color: #fff;
+	font-size: 1.1rem;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: .1s;
+	border-radius: 6px;
+}
+
+.btn:hover{
+    background-color: var(--clr-green-light);
+}
+
+.field:focus{
+    border: 2px solid var(--clr-yellow-dark);
+    background-color: #fff;
+}
+
+
+.firstlastname {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.firstlastname input:first-of-type {
+	margin-right: 22px;
+}
+
+p.prevention {
+	margin-top: 18px;
+	color: rgba(0, 0, 0, 0.6);
+	font-size: 11px;
+	line-height: 0.9em;
+}
+
+
+
+
+@media screen and (max-width: 880px) {
+	.container {
+		padding-top: 5vh;
+	}
+	.contact-box{
+		grid-template-columns: 1fr;
+	}
+	.left{
+		height: 200px;
+		border-radius: 20px 20px 0 0;
+	}
+	.field {
+		padding: 0.4rem 0.9rem;
+		margin-bottom: 16px;
+	}
+	.btn {
+		padding: 0.3rem 0.8rem;
+	}
+	.firstlastname input:first-of-type {
+		margin-right: 16px;
+	}
+	.prevention {
+		margin-top: 12px;
+	}
+}
+
+
+@media screen and (max-width: 600px) {
+	.right{
+		padding: 22px 30px;
+	}
+}
+
+
+
+
+.sendbtncontainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.sendbtn {
+	background-color: var(--clr-green);
+	padding: 12px 22px;
+	border-radius: 20px;
+	color: #fff;
+	font-size: 1.1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	width: 60%;
+	max-width: 230px;
+	outline: none;
+	border: none;
+	box-shadow: 0px 2px 6px var(--clr-green);
+	position: relative;
+}
+.button-text {
+	transition: transform .2s ease;
+}
+.button-text.loading:after {
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: bottom;
+	-webkit-animation: ellipsis steps(4, end) 900ms infinite;
+	animation: ellipsis steps(4, end) 900ms infinite;
+	content: "…";
+	width: 0px;
+}
+.sendbtn i {
+	font-size: 1.5rem;
+}
+.sendbtn .icon-send {
+	margin-right: 20px;
+	transition: .4s ease;
+}
+.sendbtn .icon-check {
+	margin-right: 10px;
+	opacity: 0;
+	position: absolute;
+	left: 50px;
+	transform: translateY(-80px);
+	transition: 200ms ease;
+}
+
+.notransition {
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	transition: none;
+}
+
+@keyframes ellipsis {
+	to {
+		width: 20px;
+	}
+}
+@-webkit-keyframes ellipsis {
+	to {
+		width: 20px;
+	}
+}

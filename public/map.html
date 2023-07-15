@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cosy Mobil | Map</title>
+
+        <link rel="icon" href="/4/contents/icons/cropped-favicon-192x192-light.png" sizes="192x192" />
+
+        <link rel="stylesheet" href="/4/styles/global.css">
+        <link rel="stylesheet" href="/4/styles/header_nav.css">
+        <link rel="stylesheet" href="/4/styles/map.css">
+
+        <!-- FONTS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin="" />
+        <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.css" />
+        <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.3.0/dist/MarkerCluster.Default.css" />
+    </head>
+    <body>
+        <header class="content-margin fullwidth" style="z-index: 401;">
+            <a href="/4" class="mainlogo">
+                <img src="/4/contents/icons/cropped-favicon-192x192-light.png" theme="light" alt="Cosy Logo - light">
+                <img src="/4/contents/icons/cropped-favicon-192x192-dark.png" theme="dark" alt="Cosy Logo - dark">
+            </a>
+            <div>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#gamme-cosy">Gamme Cosy</a>
+                            <span></span>
+                            <div class="drpdwnsubmenucont">
+                                <a href="#">Les Cosy</a>
+                                <a href="#">Louez-en une</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#cosy-campings">Cosy Campings</a>
+                            <span></span>
+                            <div class="drpdwnsubmenucont">
+                                <a href="#">Les Cosy</a>
+                                <a href="#">Louez-en une</a>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#cosy-family">Cosy Family</a>
+                            <span></span>
+                        </li>
+                        <li>
+                            <a href="#lentreprise">L'entreprise</a>
+                            <span></span>
+                        </li>
+                    </ul>
+                    <a href="/4/configurateur">
+                        <button type="button" class="primarybtn stylizedbtn">
+                            <span class="sb__txt">Commandez la vôtre !</span>
+                            <i class="sb__bg" aria-hidden="true"></i>
+                            <i class="sb__bg" aria-hidden="true"></i>
+                            <i class="sb__bg" aria-hidden="true"></i>
+                            <i class="sb__bg" aria-hidden="true"></i>
+                        </button>
+                    </a>
+                </nav>
+
+                <div id="hamburger" onclick="hamburgerClickedEvent(this)">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+        <div class="nav_drpdwn_menu" style="z-index: 401;">
+            <ul>
+                <li>
+                    <a href="#gamme-cosy">Gamme Cosy</a>
+                    <span></span>
+                </li>
+                <li>
+                    <a href="#cosy-campings">Cosy Campings</a>
+                    <span></span>
+                </li>
+                <li>
+                    <a href="#cosy-family">Cosy Family</a>
+                    <span></span>
+                </li>
+                <li>
+                    <a href="#lentreprise">L'entreprise</a>
+                    <span></span>
+                </li>
+                <li><a href="/4/configurateur">
+                    <button type="button" class="primarybtn stylizedbtn">
+                        <span class="sb__txt">Commandez la vôtre !</span>
+                        <i class="sb__bg" aria-hidden="true"></i>
+                        <i class="sb__bg" aria-hidden="true"></i>
+                        <i class="sb__bg" aria-hidden="true"></i>
+                        <i class="sb__bg" aria-hidden="true"></i>
+                    </button>
+                </a></li>
+            </ul>
+        </div>
+
+
+        <div id="map"></div>
+
+
+        <div class="markercontrol">
+            <div>
+                <div>
+                    <div class="mrkr_clrbox bg-clr-red"></div>
+                    <p> - Les meilleurs coins</p>
+                </div>
+                <input type="checkbox" checked id="chckbx_mrkr_best_places">
+            </div>
+            <div>
+                <div>
+                    <div class="mrkr_clrbox bg-clr-yellow-light"></div>
+                    <p> - Cosy Spots</p>
+                </div>
+                <input type="checkbox" checked id="chckbx_mrkr_spots">
+            </div>
+            <div>
+                <div>
+                    <div class="mrkr_clrbox bg-clr-green"></div>
+                    <p> - Cosy Campings</p>
+                </div>
+                <input type="checkbox" checked id="chckbx_mrkr_campings">
+            </div>
+        </div>
+
+        <div class="geocodingsearchcont">
+            <div>
+                <input type="text" id="srch_addr" class="searchbar" placeholder="Adresse" maxlength="100">
+                <button id="srch_addr_btn" class="primarybtn">Rechercher</button>
+            </div>
+        </div>
+
+
+
+        <script>
+            let scrll;
+
+            let top_of_page = true;
+
+            let main = document.getElementById("mainsection");
+            let header = document.getElementsByTagName("header")[0];
+
+
+            document.body.addEventListener("click", () => {
+                document.getElementById("hamburger").classList.remove("active");
+                document.getElementsByClassName("nav_drpdwn_menu")[0].classList.remove("active");
+            });
+
+            function hamburgerClickedEvent() {
+                document.getElementById("hamburger").classList.toggle("active");
+                document.getElementsByClassName("nav_drpdwn_menu")[0].classList.toggle("active");
+            }
+        </script>
+
+        <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+        <script type='text/javascript' src='https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js'></script>
+        <script type="text/javascript">
+
+            var default_pos = [46.57124487396507, 2.025495088912754];
+
+            var map = null;
+            var markerClusters;
+
+            var markers = [];
+            var markers_best_places = [];
+            var markers_spots = [];
+            var markers_campings = [];
+
+            const ptypes = {
+                "BEST_PLACES": 0,
+                "CAMPINGS": 1,
+                "SPOTS": 2,
+                "HOME": 3
+            }
+
+            var points = [
+                {
+                    "name": "MAISON",
+                    "lat": 45.70324267919466,
+                    "lon": 0.1813529508134891,
+                    "type": ptypes.HOME,
+                },
+                {
+                    "name": "Paris",
+                    "lat": 48.852969,
+                    "lon": 2.349903,
+                    "type": ptypes.SPOTS,
+                },
+                {
+                    "name": "Brest",
+                    "lat": 48.383,
+                    "lon": -4.500,
+                    "type": ptypes.CAMPINGS,
+                },
+                {
+                    "name": "Quimper",
+                    "lat": 48.000,
+                    "lon": -4.100,
+                    "type": ptypes.SPOTS,
+                },
+                {
+                    "name": "Bayonne",
+                    "lat": 43.500,
+                    "lon": -1.467,
+                    "type": ptypes.CAMPINGS,
+                },
+                {
+                    "name": "La Rochelle",
+                    "lat": 46.13977388746658,
+                    "lon": -1.154504382393047,
+                    "type": ptypes.BEST_PLACES,
+                },
+                {
+                    "name": "Lyon",
+                    "lat": 45.767356872558594,
+                    "lon": 4.83408784866333,
+                    "type": ptypes.SPOTS,
+                },
+            ];
+
+            
+            function initMap() {
+                var iconBase = '/4/contents/icons/map/';
+                let iconsvgname = ["redpoint.svg", "greenpoint.svg", "yellowlightpoint.svg", "home.svg", "yellowdarkpoint.svg"];
+                
+                map = L.map('map', {
+                    zoomControl: false
+                }).setView(default_pos, 11);
+
+                L.control.zoom({
+                    position: 'bottomright'
+                }).addTo(map);
+
+                markerClusters = L.markerClusterGroup();
+
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+                    attribution: 'données © OpenStreetMap/ODbL - rendu OSM France',
+                    minZoom: 3,
+                    maxZoom: 20,
+                }).addTo(map);
+                
+
+                for(point in points) {
+                    var myIcon = L.icon({
+                        iconUrl: iconBase + iconsvgname[points[point].type],
+                        iconSize: [40, 40],
+                        iconAnchor: [25, 50],
+                        popupAnchor: [-3, -76],
+                    });
+
+                    var marker = L.marker([points[point].lat, points[point].lon], { icon: myIcon });
+                    marker.bindPopup(points[point].name);
+                    markerClusters.addLayer(marker);
+                    markers.push(marker);
+
+                    marker.on('click', (e) => {
+                        // console.log(e.target.getLatLng());
+                        // map.panTo(e.target.getLatLng());
+                    });
+
+
+                    if(points[point].type === ptypes.BEST_PLACES) { markers_best_places.push(marker); }
+                    else if(points[point].type === ptypes.SPOTS) { markers_spots.push(marker); }
+                    else if(points[point].type === ptypes.CAMPINGS) { markers_campings.push(marker); }
+                }
+                var group = new L.featureGroup(markers);
+                map.fitBounds(group.getBounds().pad(0.5));
+                map.addLayer(markerClusters);
+            }
+
+
+            window.onload = function(){
+                initMap();
+                map.setView(default_pos, 6, { animate: false });
+            };
+
+
+
+            const chckbx_mrkr_best_places = document.getElementById("chckbx_mrkr_best_places");
+            const chckbx_mrkr_spots = document.getElementById("chckbx_mrkr_spots");
+            const chckbx_mrkr_campings = document.getElementById("chckbx_mrkr_campings");
+
+
+            chckbx_mrkr_best_places.addEventListener('change', (ev) => {
+                if (ev.currentTarget.checked) {
+                    [...markers_best_places].forEach((e, i) => {
+                        markerClusters.addLayer(e);
+                        e.setOpacity(1);
+                    });
+                } else {
+                    [...markers_best_places].forEach((e, i) => {
+                        e.closePopup();
+                        e.setOpacity(0);
+                        markerClusters.removeLayer(e);
+                    });
+                }
+            });
+            chckbx_mrkr_spots.addEventListener('change', (ev) => {
+                if (ev.currentTarget.checked) {
+                    [...markers_spots].forEach((e, i) => {
+                        markerClusters.addLayer(e);
+                        e.setOpacity(1);
+                    });
+                } else {
+                    [...markers_spots].forEach((e, i) => {
+                        e.closePopup();
+                        e.setOpacity(0);
+                        markerClusters.removeLayer(e);
+                    });
+                }
+            });
+            chckbx_mrkr_campings.addEventListener('change', (ev) => {
+                if (ev.currentTarget.checked) {
+                    [...markers_campings].forEach((e, i) => {
+                        markerClusters.addLayer(e);
+                        e.setOpacity(1);
+                    });
+                } else {
+                    [...markers_campings].forEach((e, i) => {
+                        e.closePopup();
+                        e.setOpacity(0);
+                        markerClusters.removeLayer(e);
+                    });
+                }
+            });
+
+
+
+            const srch_addr = document.getElementById("srch_addr");
+            const srch_addr_btn = document.getElementById("srch_addr_btn");
+
+            srch_addr_btn.addEventListener("click", () => {
+                fetch("https://geocode.maps.co/search?q=" + decodeURI(srch_addr.value))
+                    .then((response) => response.json())
+                    .then((data) => {
+                        if(data.length === 0) return;
+
+                        console.log(data);
+
+                        map.flyTo([data[0].lat, data[0].lon], 16, { animate: true, duration: 1 });
+                    });
+            });
+        </script>
+    </body>
+</html>

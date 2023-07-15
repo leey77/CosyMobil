@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Cosy Mobil | Voyagez autrement</title>
+
+        <link rel="icon" href="./contents/icons/cropped-favicon-192x192-dark.png" sizes="192x192" />
+
+        <link rel="stylesheet" href="./styles/global.css">
+        <link rel="stylesheet" href="./styles/configurator.css">
+        <link rel="stylesheet" href="./styles/header_nav.css">
+
+    </head>
+    <body>
+        <div id="loader" class="active">
+            <div class="loadercontent">
+                <div class="icon"></div>
+                <span></span>
+                <p id="loadertxt">Chargement du configurateur...</p>
+            </div>
+        </div>
+
+
+        <header class="content-margin fullwidth">
+            <a href="./" class="mainlogo">
+                <img src="./contents/icons/cropped-favicon-192x192-light.png" theme="light" alt="Cosy Logo - light">
+                <img src="./contents/icons/cropped-favicon-192x192-dark.png" theme="dark" alt="Cosy Logo - dark">
+            </a>
+            <div>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#gamme-cosy">Gamme Cosy</a>
+                            <span></span>
+                        </li>
+                        <li>
+                            <a href="#cosy-campings">Cosy Campings</a>
+                            <span></span>
+                        </li>
+                        <li>
+                            <a href="#cosy-family">Cosy Family</a>
+                            <span></span>
+                        </li>
+                        <li>
+                            <a href="#lentreprise">L'entreprise</a>
+                            <span></span>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div id="hamburger" onclick="hamburgerClickedEvent(this)">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+        <div class="nav_drpdwn_menu">
+            <ul>
+                <li>
+                    <a href="#gamme-cosy">Gamme Cosy</a>
+                    <span></span>
+                </li>
+                <li>
+                    <a href="#cosy-campings">Cosy Campings</a>
+                    <span></span>
+                </li>
+                <li>
+                    <a href="#cosy-family">Cosy Family</a>
+                    <span></span>
+                </li>
+                <li>
+                    <a href="#lentreprise">L'entreprise</a>
+                    <span></span>
+                </li>
+            </ul>
+        </div>
+
+
+        <div id="mainsection">
+            <div id="threecontainer"></div>
+
+
+            <div class="threeselector content-margin">
+                <button class="threeselectorbtn" btnid="1"></button>
+                <button class="threeselectorbtn" btnid="2"></button>
+                <button class="threeselectorbtn" btnid="3"></button>
+                <button class="threeselectorbtn" btnid="4"></button>
+                <button class="threeselectorbtn" btnid="5"></button>
+                <button class="threeselectorbtn" btnid="6"></button>
+                <button class="threeselectorbtn" btnid="7"></button>
+            </div>
+        </div>
+
+
+        
+        <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+        <script type="importmap"> {
+            "imports": {
+                "three": "https://unpkg.com/three@0.150.1/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.150.1/examples/jsm/"
+            }
+        }
+        </script>
+        <script type="module">
+            import * as THREE from 'three';
+            import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+            import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+
+            const scene = new THREE.Scene();
+            scene.background = new THREE.Color( 0xffffff );
+			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+            scene.add(camera);
+
+            const renderer = new THREE.WebGLRenderer(
+                {
+                    antialias: true
+                } 
+            );
+            renderer.setSize( window.innerWidth, window.innerHeight );
+			document.getElementById("threecontainer").appendChild( renderer.domElement );
+
+            renderer.outputEncoding = THREE.sRGBEncoding;
+
+            const controls = new OrbitControls( camera, renderer.domElement );
+            controls.enablePan = false;
+            controls.minPolarAngle = Math.PI / 8;
+            controls.maxPolarAngle = Math.PI / 2;
+            controls.minDistance = 2.5;
+            controls.maxDistance = 5;
+
+
+            var hemiLight = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
+            hemiLight.position.set( 0, 500, 0 );
+            scene.add( hemiLight );
+
+            const dirlight1 = new THREE.DirectionalLight(0xffffff, 0.5);
+            dirlight1.position.set(2, 2, 8);
+            scene.add(dirlight1);
+
+            const dirlight2 = new THREE.DirectionalLight(0xffffff, 0.3);
+            dirlight2.position.set(-6, -4, 8);
+            scene.add(dirlight2);
+
+            
+            let bodymesh;
+
+            const loader = new GLTFLoader();
+            loader.load(
+                // resource URL
+                './contents/3D/cosy_1.glb',
+
+                // called when the resource is loaded
+                function ( gltf ) {
+                    // console.log(gltf);
+
+                    scene.add( gltf.scene );
+
+                    gltf.scene.traverse(function (child) {
+                        if(child.name == "Body") {
+                            bodymesh = child;
+                            console.log(bodymesh);
+                        }
+                    })
+
+                    gltf.animations; // Array<THREE.AnimationClip>
+                    gltf.scene; // THREE.Group
+                    gltf.scenes; // Array<THREE.Group>
+                    gltf.cameras; // Array<THREE.Camera>
+                    gltf.asset; // Object
+
+                    
+                    let tout = 1000 - (Date.now() - window.performance.timing.navigationStart);
+                    console.log(tout);
+                    setTimeout(() => {
+                        document.getElementById("loader").classList.remove("active");
+                    }, tout);
+                },
+                function ( xhr ) {
+                    // console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+                },
+                function ( error ) {
+                    console.log( 'An error happened' );
+                }
+            );
+
+            // const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+			// const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+			// const cube = new THREE.Mesh( geometry, material );
+			// scene.add( cube );
+
+			camera.position.z = 4;
+            camera.position.x = -2;
+            camera.position.y = 1.5;
+
+			function animate() {
+				requestAnimationFrame( animate );
+
+				// cube.rotation.x += 0.01;
+				// cube.rotation.y += 0.01;
+
+                controls.update();
+
+				renderer.render( scene, camera );
+			}
+
+			animate();
+
+
+
+
+
+            [...document.getElementsByClassName("threeselectorbtn")].forEach((e, i) => {
+                e.addEventListener("click", () => {
+                    let bgcolor = getComputedStyle(e).backgroundColor;
+                    
+                    bodymesh.material.color = new THREE.Color(bgcolor);
+                });
+            });
+
+
+
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+
+                renderer.setSize( window.innerWidth, window.innerHeight );
+            });
+        </script>
+
+
+        <script>
+            function showFPS() {
+                javascript:(function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='https://mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})()
+            }
+            
+            document.body.addEventListener("click", () => {
+                // document.getElementById("hamburger").classList.remove("active");
+                // document.getElementsByClassName("nav_drpdwn_menu")[0].classList.remove("active");
+            });
+
+            function hamburgerClickedEvent() {
+                document.getElementById("hamburger").classList.toggle("active");
+                document.getElementsByClassName("nav_drpdwn_menu")[0].classList.toggle("active");
+            }
+        </script>
+    </body>
+</html>

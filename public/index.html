@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Cosy Mobil | Voyagez autrement</title>
+
+        <link rel="icon" href="./4/contents/icons/cropped-favicon-192x192-light.png" sizes="192x192" />
+
+        <link rel="stylesheet" href="./4/styles/global.css">
+        <link rel="stylesheet" href="./4/styles/index.css">
+        <link rel="stylesheet" href="./4/styles/header_nav.css">
+
+
+        <!-- FONTS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header class="content-margin">
+            <a href="#" class="mainlogo" onclick="document.getElementById('mainsection').scrollTo({ top: 0, behavior: 'smooth' });">
+                <img src="./4/contents/icons/cropped-favicon-192x192-light.png" theme="light" alt="Cosy Logo - light">
+                <img src="./4/contents/icons/cropped-favicon-192x192-dark.png" theme="dark" alt="Cosy Logo - dark">
+            </a>
+            <div>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#gamme-cosy">Gamme Cosy</a>
+                            <span></span>
+                            <div class="drpdwnsubmenucont">
+                                <div>
+                                    <a href="/4/les-cosy">Les Cosy</a>
+                                    <a href="/4/contact">Louez-en une</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#cosy-family">Cosy Family</a>
+                            <span></span>
+                            <div class="drpdwnsubmenucont">
+                                <div>
+                                    <a href="/4/map">Map Cosy</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#cosy-campings">Cosy Campings</a>
+                            <span></span>
+                        </li>
+                        <li>
+                            <a href="#lentreprise">L'entreprise</a>
+                            <span></span>
+                            <div class="drpdwnsubmenucont">
+                                <div>
+                                    <a href="/4/map">L'origine de Cosy</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="/4/configurateur">
+                        <button type="button" class="primarybtn stylizedbtn">
+                            <span class="sb__txt">Commandez la vôtre !</span>
+                            <i class="sb__bg" aria-hidden="true"></i>
+                            <i class="sb__bg" aria-hidden="true"></i>
+                            <i class="sb__bg" aria-hidden="true"></i>
+                            <i class="sb__bg" aria-hidden="true"></i>
+                        </button>
+                    </a>
+                </nav>
+
+                <div id="hamburger" onclick="hamburgerClickedEvent(this)">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+        <div class="nav_drpdwn_menu">
+            <ul>
+                <li>
+                    <a href="#gamme-cosy">Gamme Cosy</a>
+                    <span></span>
+                </li>
+                <li>
+                    <a href="#cosy-family">Cosy Family</a>
+                    <span></span>
+                </li>
+                <li>
+                    <a href="#cosy-campings">Cosy Campings</a>
+                    <span></span>
+                </li>
+                <li>
+                    <a href="#lentreprise">L'entreprise</a>
+                    <span></span>
+                </li>
+                <li><a href="/4/configurateur">
+                    <button type="button" class="primarybtn stylizedbtn">
+                        <span class="sb__txt">Commandez la vôtre !</span>
+                        <i class="sb__bg" aria-hidden="true"></i>
+                        <i class="sb__bg" aria-hidden="true"></i>
+                        <i class="sb__bg" aria-hidden="true"></i>
+                        <i class="sb__bg" aria-hidden="true"></i>
+                    </button>
+                </a></li>
+            </ul>
+        </div>
+
+
+
+        <div id="mainsection">
+            <section class="videoprescont">
+                <video class="back-video" poster="./4/contents/pictures/loadingvideo_1920.webp" loop autoplay muted>
+                    <source src="./4/contents/videos/pub.webm" type="video/webm">
+                    <source src="./4/contents/videos/pub.mp4" type="video/mp4">
+                </video>
+                
+                <div class="content content-margin">
+                    <h1>Voyagez autrement...</h1>
+                    <a href="#gamme-cosy">
+                        <button class="primarybtn">Découvrez la Cosy Mobil&nbsp;!</button>
+                    </a>
+                </div>
+                
+                <div class="scrolldowncont">
+                    <a class="scrolldownicon show" onclick="document.getElementById('mainsection').scrollTo({ top: window.innerHeight, behavior: 'smooth' });">
+                        <span></span>
+                    </a>
+                </div>
+            </section>
+
+            <section id="gamme-cosy" class="section bg-clr-red content-margin">
+                <div class="cont conttext">
+                    <div>
+                        <h2>Notre gamme de sublime Cosy&nbsp;Mobil&nbsp;:</h2>
+                    </div>
+                    <div>
+                        <p><b>Inspiration directe des années vintage</b> le long de la fabuleuse Road 66, Cosymobil vous embarque pour des voyages sans attaches !</p>
+                        <p>C’est l’aventure à portée de doigts, une alternative inédite au camping traditionnel sous tente. Des vacances ou un week-end, en vadrouille dans une caravane mini-format mais avec le confort nécessaire et suffisant pour s’évader : voyagez autrement ! Voyagez avec ce qui compte vraiment !</p>
+                        <p><b>Voyager en Cosy</b> est une excellente façon de découvrir de nouveaux endroits, de vivre une expérience différente, confortable et pratique !</p>
+                    </div>
+                    <div>
+                        <a href="/4/contact"><button class="primarybtn">Louez une Cosy</button></a>
+                        <a href="/4/les-cosy"><button class="primarybtn">En savoir +</button></a>
+                    </div>
+                </div>
+                <div class="cont">
+                    <div class="row">
+                        <div class="card">
+                            <img src="./4/contents/pictures/loadingvideo_1920.webp">
+                        </div>
+                        <div class="card">
+                            <img src="./4/contents/pictures/334962101_227085139774633_5155412674481067223_n.jpg">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="card">
+                            <img src="./4/contents/pictures/DSC7366-scaled.jpg">
+                        
+                        </div>
+                        <div class="card">
+                            <img src="./4/contents/pictures/333972260_602525308001981_9076067338213843360_n.jpg">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="cosy-family" class="section bg-clr-yellow-light content-margin">
+                <div class="cont contimg">
+                    <img src="./4/contents/pictures/450417.webp" alt="">
+                </div>
+                <div class="cont conttext">
+                    <div>
+                        <h2>Rejoignez la Cosy Family&nbsp;!</h2>
+                    </div>
+                    <div>
+                        <p><b>La CosyFamily</b> ce sont des roadtripers, des festivaliers, des touristes ou encore des aventuriers !
+                            <br>Ce sont surtout des personnes qui cherchent un mode de loisirs accessible, sans mettre en péril leur budget.</p> 
+                        <p>La CosyFamily c'est aussi l'art de voyager ensemble, <b>le partage de vos meilleurs endroits et moments</b></p>   
+                    </div>
+                    <div>
+                        <a href="/4/map"><button class="primarybtn">Voir tous les Cosy Spots</button></a>
+                    </div>
+                </div>
+            </section>
+
+            <section id="cosy-campings" class="section bg-clr-green content-margin">
+                <div class="cont conttext">
+                    <div>
+                        <h2>Notre gamme de sublime Cosy&nbsp;Mobil&nbsp;:</h2>
+                    </div>
+                    <div>
+                        <p><b>Gérants ou propriétaires de campings</b>, sautez sur cette merveilleuse opportunité d’augmenter votre chiffre d’affaire ; proposez un hébergement unique, original, totalement « revival » et tendance dans le domaine du véhicule récréatif.</p>
+                        <p><b>Et vous</b>, campeurs/campeuses, profitez d'emplacements dans vos campings préférés pour votre Cosy !</p>
+                    </div>
+                    <div>
+                        <a><button class="primarybtn">Vous êtes gérant de camping ?</button></a>
+                    </div>
+                </div>
+                <div class="cont contimg">
+                    <img src="./4/contents/pictures/DSC7266-2.jpg" alt="">
+                </div>
+            </section>
+
+            <section id="jointhecosyunivers" class="section">
+                <div>
+                    <div>
+                        <h2>Rejoignez l'univers Cosy</h2>
+                    </div>
+                    <div>
+                        <a href="/4/configurateur">
+                            <button type="button" class="primarybtn stylizedbtn">
+                                <span class="sb__txt">Créer votre cosy ici !</span>
+                                <i class="sb__bg" aria-hidden="true"></i>
+                                <i class="sb__bg" aria-hidden="true"></i>
+                                <i class="sb__bg" aria-hidden="true"></i>
+                                <i class="sb__bg" aria-hidden="true"></i>
+                            </button>
+                        </a>
+                        <div>
+                            <span></span>
+                            <p>OU</p>
+                            <span></span>
+                        </div>
+                        <a href="/4/les-cosy"><button class="primarybtn">Découvrez toutes les possibilitées</button></a>
+                    </div>
+                </div>
+            </section>
+            <section id="lentreprise" class="section bg-clr-yellow-dark content-margin">
+                <div class="fwcont">
+                    <div class="left">
+                        <div>
+                            <a href=""><img src="/4/contents/pictures/associes/jerome_square.png" alt=""></a>
+                            <a href=""><img src="/4/contents/pictures/associes/david_square.png" alt=""></a>
+                            <a href=""><img src="/4/contents/pictures/associes/jerome_square.png" alt=""></a>
+                            <a href=""><img src="/4/contents/pictures/associes/david_square.png" alt=""></a>
+                        </div>
+                        <div>
+                            <div>
+                                <h4>Jérome Simiot:</h4>
+                                <p><i>"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam repellat vitae iste quas obcaecati non. Blablable<a href="">...</a>"</i></p>
+                            </div>
+                            <div>
+                                <h4>David Nauche:</h4>
+                                <p><i>"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam repellat vitae iste quas obcaecati non. Blablable<a href="">...</a>"</i></p>
+                            </div>
+                            <div>
+                                <h4>Jean Maurice:</h4>
+                                <p><i>"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam repellat vitae iste quas obcaecati non. Blablable<a href="">...</a>"</i></p>
+                            </div>
+                            <div>
+                                <h4>Manu Macron:</h4>
+                                <p><i>"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam repellat vitae iste quas obcaecati non. Blablable<a href="">...</a>"</i></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <h2>L'entreprise Cosy et ses origines</h2>
+                        <div>
+                            <p>Quatres entrepreneurs charentais se lancent dans l’incroyable aventure de la mini-caravane !
+                                Pour quelle raison ?
+                                
+                                <br>Répandre la Cosy-Passion des mini-caravanes et micro-habitats partout !
+                                
+                                <br><br>Déterminés et portés par le challenge, ces bâtisseurs d’un futur à forte valeur ajoutée créent « Cosymobil » !
+                                
+                                <br>4 associés :
+                                – Eric Nardot
+                                – David Penneteau
+                                – Jérôme Simiot
+                                – Abdel Dekkiche
+                                
+                                <br><br>Ils se lancent, déterminés, avec un engagement commun et l’ultime souhait : devenir le numéro 1 de la distribution française de mini-caravane et micro-habitat !
+                            </p>
+                        </div>
+                        <div>
+                            <a><button class="primarybtn">En savoir + sur l'entreprise</button></a>
+                            <a><button class="primarybtn">L'origine de Cosy</button></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <footer class="content-margin">
+                <div>
+                    <img src="/4/contents/icons/cropped-favicon-192x192-light.png" alt="">
+                </div>
+                <span class="separator"></span>
+                <div>
+                    <div>
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi nostrum optio voluptate reiciendis officia dolorum, nulla odio quia fugiat repudiandae sed culpa alias maiores distinctio, quam voluptates dolores aspernatur rerum!
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+
+
+
+        <script>
+            let scrll;
+
+            let top_of_page = true;
+
+            let main = document.getElementById("mainsection");
+            let header = document.getElementsByTagName("header")[0];
+
+            let headertoconfigbtn = document.getElementsByTagName("header")[0].getElementsByClassName("stylizedbtn")[0];
+            let headertoconfigbtn_shover = false;
+            
+            
+            main.addEventListener("scroll", (ev) => {
+                scrll = main.scrollTop;
+                
+                // Header
+                if(scrll > 30 && top_of_page) {
+                    header.classList.add("solid");
+                    top_of_page = false;
+                } else if(scrll < 30 && !top_of_page) {
+                    header.classList.remove("solid");
+                    top_of_page = true;
+                }
+
+
+                let scrll_by_screen = scrll / window.innerHeight;
+                // console.log(scrll_by_screen);
+
+                function changeLi(x) {
+                    let ul = document.getElementsByTagName("ul");
+                    
+                    [...ul].forEach(el => {
+                        [...el.getElementsByTagName("li")].forEach((el) => {
+                            el.classList.remove("active");
+                        });
+
+                        if(x ) el.getElementsByTagName("li")[x-1].classList.add("active");
+                    });
+                }
+
+
+                if(scrll_by_screen < 0.3) {
+                    changeLi();
+                } else if(scrll_by_screen < 1.2) {
+                    changeLi(1);
+                } else if(scrll_by_screen < 2.2) {
+                    changeLi(2);
+                } else if(scrll_by_screen < 3.2) {
+                    changeLi(3);
+                } else if(scrll_by_screen < 4.2) {
+                    changeLi();
+                } else if(scrll_by_screen < 5.2) {
+                    changeLi(4);
+                } else {
+                    changeLi();
+                }
+
+                if(!headertoconfigbtn_shover && scrll_by_screen > 0.7 && scrll_by_screen < 1.1) {
+                    setTimeout(() => {
+                        // if(headertoconfigbtn_shover) headertoconfigbtn.classList.add("shover");
+                    }, 400);
+                    headertoconfigbtn_shover = true;                  
+                } else {
+                    headertoconfigbtn_shover = false;
+                    headertoconfigbtn.classList.remove("shover");
+                }
+            });
+
+
+            main.addEventListener("click", () => {
+                document.getElementById("hamburger").classList.remove("active");
+                document.getElementsByClassName("nav_drpdwn_menu")[0].classList.remove("active");
+            });
+
+            function hamburgerClickedEvent() {
+                document.getElementById("hamburger").classList.toggle("active");
+                document.getElementsByClassName("nav_drpdwn_menu")[0].classList.toggle("active");
+            }
+
+
+
+
+
+
+            const divassocies_img = document.querySelector("#lentreprise .fwcont .left > div:first-of-type");
+            const divassocies_txt = document.querySelector("#lentreprise .fwcont .left > div:last-of-type");
+            let current_associe = 1;
+            let last_associe = 4;
+            const max_associe = 4;
+
+            function changeAssocieProfile() {
+                if(current_associe > max_associe) current_associe = 1;
+
+                divassocies_img.children.item(current_associe-1).classList.add("active");
+                divassocies_img.children.item(last_associe-1).classList.remove("active");
+
+                divassocies_txt.children.item(current_associe-1).classList.add("active");
+                divassocies_txt.children.item(last_associe-1).classList.remove("active");
+
+                last_associe = current_associe;
+                current_associe = current_associe + 1;
+            }
+
+            changeAssocieProfile();
+            setInterval(() => {
+                changeAssocieProfile();
+            }, 7000);
+        </script>
+    </body>
+</html>

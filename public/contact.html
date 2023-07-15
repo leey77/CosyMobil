@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Cosy Mobil | Nous contacter</title>
+
+        <link rel="icon" href="/4/contents/icons/cropped-favicon-192x192-light.png" sizes="192x192" />
+
+        <link rel="stylesheet" href="/4/styles/global.css">
+        <link rel="stylesheet" href="/4/styles/contact.css">
+        <link rel="stylesheet" href="/4/styles/header_nav.css">
+
+        <!-- FONTS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    </head>
+    <body>
+        <header class="content-margin">
+            <a href="/4" class="mainlogo">
+                <img src="/4/contents/icons/cropped-favicon-192x192-light.png" theme="light" alt="Cosy Logo - light">
+                <img src="/4/contents/icons/cropped-favicon-192x192-dark.png" theme="dark" alt="Cosy Logo - dark">
+            </a>
+            <div>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#gamme-cosy">Gamme Cosy</a>
+                            <span></span>
+                            <div class="drpdwnsubmenucont">
+                                <div>
+                                    <a href="#">Les Cosy</a>
+                                    <a href="#">Louez-en une</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#cosy-family">Cosy Family</a>
+                            <span></span>
+                            <div class="drpdwnsubmenucont">
+                                <div>
+                                    <a href="#">Les Cosy</a>
+                                    <a href="#">Louez-en une</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#cosy-campings">Cosy Campings</a>
+                            <span></span>
+                        </li>
+                        <li>
+                            <a href="#lentreprise">L'entreprise</a>
+                            <span></span>
+                        </li>
+                    </ul>
+                    <a href="/4/configurateur">
+                        <button type="button" class="primarybtn stylizedbtn">
+                            <span class="sb__txt">Commandez la vôtre !</span>
+                            <i class="sb__bg" aria-hidden="true"></i>
+                            <i class="sb__bg" aria-hidden="true"></i>
+                            <i class="sb__bg" aria-hidden="true"></i>
+                            <i class="sb__bg" aria-hidden="true"></i>
+                        </button>
+                    </a>
+                </nav>
+
+                <div id="hamburger" onclick="hamburgerClickedEvent(this)">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </header>
+        <div class="nav_drpdwn_menu">
+            <ul>
+                <li>
+                    <a href="#gamme-cosy">Gamme Cosy</a>
+                    <span></span>
+                </li>
+                <li>
+                    <a href="#cosy-campings">Cosy Campings</a>
+                    <span></span>
+                </li>
+                <li>
+                    <a href="#cosy-family">Cosy Family</a>
+                    <span></span>
+                </li>
+                <li>
+                    <a href="#lentreprise">L'entreprise</a>
+                    <span></span>
+                </li>
+                <li><a href="/4/configurateur">
+                    <button type="button" class="primarybtn stylizedbtn">
+                        <span class="sb__txt">Commandez la vôtre !</span>
+                        <i class="sb__bg" aria-hidden="true"></i>
+                        <i class="sb__bg" aria-hidden="true"></i>
+                        <i class="sb__bg" aria-hidden="true"></i>
+                        <i class="sb__bg" aria-hidden="true"></i>
+                    </button>
+                </a></li>
+            </ul>
+        </div>
+
+        <div id="mainsection">
+            <div class="container content-margin">
+                <div class="contact-box">
+                    <div class="left">
+                        <div class="socialnetworks">
+                            
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="firstlastname">
+                            <input id="lastnameinput" type="text" class="field" placeholder="Nom">
+                            <input id="firstnameinput" type="text" class="field" placeholder="Prénom">
+                        </div>
+                        <input id="emailinput" type="text" class="field" placeholder="Votre mail">
+                        <input id="phoneinput" type="text" class="field" placeholder="Votre numéro de téléphone">
+                        <select class="field" name="" id="iaminput">
+                            <option value="null" selected="true" disabled>Je suis un...</option>
+                            <option value="PARTICULIER">Je suis un particulier</option>
+                            <option value="PRO">Je suis un professionel</option>
+                            <option value="CAMPING">Je suis un camping</option>
+                        </select>
+                        <select class="field" name="" id="iwantinput">
+                            <option value="null" selected="true" disabled>C'est pour...</option>
+                            <option value="DEMANDE DE LOC">Faire une demande de location</option>
+                            <option value="OPT 2">Option 2</option>
+                            <option value="OPT 3">Option 3</option>
+                            <option value="OPT 4">Option 4</option>
+                            <option value="OPT 5">Option 5</option>
+                        </select>
+                        <textarea id="messinput" placeholder="Message" class="field"></textarea>
+
+                        <div class="sendbtncontainer">
+                            <button class="sendbtn btn">
+                                <i class="material-symbols-outlined icon-send material-icons">send</i>
+                                <i class="material-symbols-outlined icon-check material-icons">done</i>
+                                <span class="button-text">Envoyer</span>
+                            </button>
+                        </div>
+
+                        <!-- <button class="btn">Envoyer</button> -->
+                        <p class="prevention">*En appuyant sur envoyer, vous nous autorisé à blablabla et blablablabla</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let scrll;
+
+            let top_of_page = true;
+
+            let main = document.getElementById("mainsection");
+            let header = document.getElementsByTagName("header")[0];
+
+            // main.addEventListener("scroll", (ev) => {
+            //     scrll = main.scrollTop;
+                
+            //     // Header
+            //     if(scrll > 30 && top_of_page) {
+            //         header.classList.add("solid");
+            //         top_of_page = false;
+            //     } else if(scrll < 30 && !top_of_page) {
+            //         header.classList.remove("solid");
+            //         top_of_page = true;
+            //     }
+            // });
+
+
+            main.addEventListener("click", () => {
+                document.getElementById("hamburger").classList.remove("active");
+                document.getElementsByClassName("nav_drpdwn_menu")[0].classList.remove("active");
+            });
+
+            function hamburgerClickedEvent() {
+                document.getElementById("hamburger").classList.toggle("active");
+                document.getElementsByClassName("nav_drpdwn_menu")[0].classList.toggle("active");
+            }
+        </script>
+
+        <script>
+            const lastnameinput = document.getElementById("lastnameinput");
+            const firstnameinput = document.getElementById("firstnameinput");
+            const emailinput = document.getElementById("emailinput");
+            const phoneinput = document.getElementById("phoneinput");
+            const iaminput = document.getElementById("iaminput");
+            const iwantinput = document.getElementById("iwantinput");
+            const messinput = document.getElementById("messinput");
+
+            const sendButton = document.querySelector('.sendbtn');
+
+            sendButton.addEventListener('click', handleClick);
+
+            function handleClick() {
+                if(lastnameinput.value == "") {
+                    lastnameinput.focus();
+                    return;
+                } else if(firstnameinput.value == "") {
+                    firstnameinput.focus();
+                    return;
+                } else if(emailinput.value == "" || /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailinput.value) == false) {
+                    emailinput.focus();
+                    return;
+                } else if(phoneinput.value == "") {
+                    phoneinput.focus();
+                    return;
+                } else if(iaminput.value == "null") {
+                    iaminput.focus();
+                    return;
+                } else if(iwantinput.value == "null") {
+                    iwantinput.focus();
+                    return;
+                } else if(messinput.value == "") {
+                    messinput.focus();
+                    return;
+                }
+
+
+                const buttonText = this.querySelector('.button-text');
+                const sendIcon = this.querySelector('.icon-send');
+                
+                sendIcon.style.transform = `scale(0.5) translateX(-200px)`;
+                buttonText.textContent = 'Envoie';
+                buttonText.classList.add('loading');
+                buttonText.style.transform = `translateX(-10px)`;
+                
+                setTimeout(() => {
+                    buttonText.style.transform = `translateY(80px)`;
+                    buttonText.classList.remove('loading');
+                    
+                    
+                    sendIcon.style.transition = `1.4s ease 230ms`;
+                    sendIcon.style.transform = `scale(1.8) translateX(120px)`;
+                    
+                    
+                    sendIcon.addEventListener("webkitTransitionEnd", showSentText);
+                }, 2000);
+            }
+
+            function showSentText() {
+                const buttonText = document.querySelector('.button-text');
+                const iconCheck = document.querySelector('.icon-check');
+                
+                iconCheck.style.opacity = `1`;
+                
+                buttonText.classList.add('notransition');
+                buttonText.style.transform = `translateY(-80px)`;
+                buttonText.textContent = 'Envoyé !';
+                buttonText.offsetHeight;
+                buttonText.classList.remove('notransition');
+                
+                
+                iconCheck.style.transform = `translateY(0px)`;
+                buttonText.style.transform = `translateY(0px)`;
+                
+                sendButton.removeEventListener('click', handleClick);
+
+
+                var mailinfos = {
+                    mail: emailinput.value,
+                    lastname: lastnameinput.value,
+                    firstname: firstnameinput.value,
+                    phone: phoneinput.value,
+                    iam: iaminput.value,
+                    iwant: iwantinput.value,
+                    body: messinput.value,
+                    date: "Le " + new Date().toLocaleDateString() + " à " + new Date().toISOString().slice(11, 16),
+                    _subject: `SI Contact - [${iaminput.value}] - [${iwantinput.value}]`, 
+                    _body: `${lastnameinput.value} ${firstnameinput.value}\n${emailinput.value}\n${phoneinput.value}\n${iaminput.value}\n${iwantinput.value}\n\nMessage:\n"""\n${messinput.value}\n"""`,
+                };
+                console.log(mailinfos);
+            }  
+        </script>
+    </body>
+</html>
